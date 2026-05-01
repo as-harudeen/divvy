@@ -1,0 +1,15 @@
+# Maestro smoke flow for the home screen.
+#
+# Run locally with a simulator/emulator running:
+#   pnpm --filter mobile test:e2e
+#
+# Adjust appId to match `ios.bundleIdentifier` / `android.package` in app.json.
+
+appId: com.example.mobile
+name: Home screen smoke
+---
+- launchApp:
+    clearState: true
+- assertVisible: "React Native + Supabase + TDD Template"
+- assertVisible: "Supabase Docs"
+- assertVisible: "Expo Docs"
