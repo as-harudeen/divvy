@@ -3,6 +3,12 @@ import { render } from '@testing-library/react-native';
 
 jest.mock('react-native-url-polyfill/auto', () => ({}));
 jest.mock('../src/global.css', () => ({}), { virtual: true });
+jest.mock('react-native-gesture-handler', () => {
+  const View = require('react-native').View;
+  return {
+    GestureHandlerRootView: View,
+  };
+});
 
 jest.mock('expo-router', () => ({
   Stack: () => null,

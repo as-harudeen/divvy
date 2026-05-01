@@ -8,11 +8,11 @@ Bootstrap dev environment. Verify Expo app boots on iOS simulator AND a real And
 
 - [ ] App builds + launches on iOS simulator
 - [ ] App builds + launches on real Android device (not just emulator)
-- [ ] Add deps: `zustand`, `nanoid`, `lucide-react-native`, `react-native-reanimated`, `react-native-gesture-handler`, `expo-haptics`, `expo-font`, `@gorhom/bottom-sheet`
-- [ ] Configure `react-native-reanimated/plugin` in `babel.config.js`
-- [ ] Wrap root layout in `GestureHandlerRootView`
-- [ ] `pnpm turbo typecheck` clean
-- [ ] `pnpm biome check .` clean
+- [x] Add deps: `zustand`, `nanoid`, `lucide-react-native`, `react-native-reanimated`, `react-native-gesture-handler`, `expo-haptics`, `expo-font`, `@gorhom/bottom-sheet`
+- [x] Configure `react-native-reanimated/plugin` in `babel.config.js`
+- [x] Wrap root layout in `GestureHandlerRootView`
+- [x] `pnpm turbo typecheck` clean
+- [x] `pnpm biome check .` clean
 
 ## Technical Notes
 
@@ -26,10 +26,10 @@ Bootstrap dev environment. Verify Expo app boots on iOS simulator AND a real And
 ## TDD Checklist
 
 - [x] Smoke test: root layout renders without crash
-- [ ] Implement deps + babel plugin
-- [ ] `pnpm turbo typecheck` — no errors
-- [ ] `pnpm turbo lint` — no issues
-- [ ] All tests green
+- [x] Implement deps + babel plugin
+- [x] `pnpm turbo typecheck` — no errors
+- [x] `pnpm turbo lint` — no issues
+- [x] All tests green
 
 ## Completed
 

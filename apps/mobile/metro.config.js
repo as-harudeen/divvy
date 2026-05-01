@@ -16,7 +16,7 @@ config.resolver.nodeModulesPaths = [
   path.resolve(workspaceRoot, 'node_modules'),
 ];
 
-// pnpm hoists differently from npm/yarn — keep resolution deterministic
-config.resolver.disableHierarchicalLookup = true;
+// With shamefully-hoist=true, packages are hoisted to root node_modules —
+// hierarchical lookup ensures Metro can resolve transitive deps from .pnpm paths
 
 module.exports = withNativeWind(config, { input: './src/global.css' });

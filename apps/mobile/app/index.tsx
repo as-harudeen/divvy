@@ -10,7 +10,7 @@ export default function HomeScreen() {
           testID="page-heading"
           className="text-center text-3xl font-bold text-gray-900"
         >
-          🚀 React Native + Supabase + TDD Template
+          🚀 React Native + Supabase + TDD Template 
         </Text>
         <Text className="max-w-md text-center text-base text-gray-600">
           Your monorepo template is ready. Connect Supabase, generate types, and write your first

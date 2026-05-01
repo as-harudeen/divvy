@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx expo *)",
+      "Bash(pnpm install *)",
+      "Bash(pnpm why *)",
+      "Bash(pnpm --filter @repo/supabase why react-native)",
+      "Bash(pnpm dedupe *)"
+    ]
+  }
+}
