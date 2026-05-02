@@ -16,6 +16,8 @@
     "test:e2e": "maestro test .maestro"
   },
   "dependencies": {
+    "@expo-google-fonts/inter": "^0.4.2",
+    "@expo-google-fonts/jetbrains-mono": "^0.4.1",
     "@expo/metro-runtime": "~6.1.2",
     "@gorhom/bottom-sheet": "^5.2.13",
     "@react-native-async-storage/async-storage": "2.2.0",

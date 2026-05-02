@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Avatar matches snapshot 1`] = `
+<View
+  accessibilityLabel="Avatar for Charlie"
+  accessibilityRole="image"
+  className="h-10 w-10 items-center justify-center rounded-full"
+  style={
+    {
+      "backgroundColor": "#9333EA",
+    }
+  }
+>
+  <Text
+    className="text-sm font-bold text-white"
+  >
+    C
+  </Text>
+</View>
+`;

@@ -10,6 +10,22 @@ jest.mock('react-native-gesture-handler', () => {
   };
 });
 
+jest.mock('expo-font', () => ({
+  useFonts: () => [true, null],
+}));
+
+jest.mock('@expo-google-fonts/inter', () => ({
+  Inter_400Regular: 'Inter_400Regular',
+  Inter_500Medium: 'Inter_500Medium',
+  Inter_600SemiBold: 'Inter_600SemiBold',
+  Inter_700Bold: 'Inter_700Bold',
+}));
+
+jest.mock('@expo-google-fonts/jetbrains-mono', () => ({
+  JetBrainsMono_400Regular: 'JetBrainsMono_400Regular',
+  JetBrainsMono_500Medium: 'JetBrainsMono_500Medium',
+}));
+
 jest.mock('expo-router', () => ({
   Stack: () => null,
 }));
@@ -22,6 +38,11 @@ import RootLayout from '../app/_layout';
 
 describe('RootLayout', () => {
   it('renders without crash', () => {
+    expect(() => render(<RootLayout />)).not.toThrow();
+  });
+
+  it('loads Inter and JetBrains Mono font maps', () => {
+    render(<RootLayout />);
     expect(() => render(<RootLayout />)).not.toThrow();
   });
 });

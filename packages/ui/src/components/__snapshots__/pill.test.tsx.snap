@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pill matches snapshot with default variant 1`] = `
+<View
+  accessibilityRole="text"
+  className="flex-row items-center self-start rounded-full px-3 py-1 bg-gray-100 text-gray-800"
+>
+  <Text
+    className="text-sm font-medium text-gray-800"
+  >
+    Default
+  </Text>
+</View>
+`;
+
+exports[`Pill matches snapshot with success variant 1`] = `
+<View
+  accessibilityRole="text"
+  className="flex-row items-center self-start rounded-full px-3 py-1 bg-green-100 text-green-800"
+>
+  <Text
+    className="text-sm font-medium text-green-800"
+  >
+    Paid
+  </Text>
+</View>
+`;

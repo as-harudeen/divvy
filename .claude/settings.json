@@ -6,6 +6,9 @@
       "Bash(pnpm why *)",
       "Bash(pnpm --filter @repo/supabase why react-native)",
       "Bash(pnpm dedupe *)"
+    ],
+    "additionalDirectories": [
+      "/home/as-harudeen/Desktop/projects/divvy/apps/mobile/app/group/[id]/split"
     ]
   }
 }
