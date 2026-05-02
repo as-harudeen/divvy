@@ -30,3 +30,24 @@ export interface UserProfile {
   createdAt: string;
   updatedAt: string;
 }
+
+export type PersonId = string;
+
+export interface Transfer {
+  from: PersonId;
+  to: PersonId;
+  cents: number;
+  paidAt?: string;
+}
+
+export interface Split {
+  id: string;
+  groupId: string;
+  label: string;
+  totalCents: number;
+  payerId: PersonId;
+  createdAt: string;
+  shares: Record<PersonId, number>;
+  settlementStatus?: 'open' | 'settled';
+  transfers?: Transfer[];
+}
