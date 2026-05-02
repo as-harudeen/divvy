@@ -6,7 +6,8 @@
     "build": "turbo build",
     "test": "turbo test",
     "test:e2e": "turbo test:e2e",
-    "lint": "turbo lint",
+    "lint": "turbo lint && biome check --write scripts package.json && pnpm lint:money",
+    "lint:money": "node scripts/check-money-math.js",
     "format": "biome format --write .",
     "typecheck": "turbo typecheck",
     "clean": "turbo clean && rm -rf node_modules"
