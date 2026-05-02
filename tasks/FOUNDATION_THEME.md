@@ -42,3 +42,7 @@ Lock visual language before any screen built. Extract tokens from mockups: color
 - `apps/mobile/app/_design.tsx` — Debug route with __DEV__ guard, shows all primitives
 - Both tailwind configs extended with theme tokens (colors, radii, spacing, font families)
 - 79 tests passing across monorepo (49 @repo/ui + 23 mobile + 7 @repo/utils)
+
+## Follow-up
+
+- **`app/_layout.tsx` font error handling**: `useFonts` returns `[fontsLoaded, fontError]` but only `fontsLoaded` is checked. If a font fails to load, `fontsLoaded` stays `false` forever and the app shows a blank screen. Fix: check `fontError` and render a fallback, or keep Expo SplashScreen visible until fonts are ready. Low urgency since fonts are bundled locally, but cheap to fix and prevents blank-screen edge case.
