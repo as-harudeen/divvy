@@ -32,6 +32,28 @@ export interface UserProfile {
 }
 
 export type PersonId = string;
+export type GroupId = string;
+export type SplitId = string;
+
+export interface Person {
+  id: PersonId;
+  name: string;
+  avatarColor: string;
+  createdAt: string;
+}
+
+export type GroupStatus = 'active' | 'settled';
+
+export interface Group {
+  id: GroupId;
+  name: string;
+  memberIds: PersonId[];
+  createdAt: string;
+  lastActivityAt: string;
+  status: GroupStatus;
+}
+
+export type SettlementStatus = 'open' | 'settled';
 
 export interface Transfer {
   from: PersonId;
@@ -41,13 +63,13 @@ export interface Transfer {
 }
 
 export interface Split {
-  id: string;
-  groupId: string;
+  id: SplitId;
+  groupId: GroupId;
   label: string;
   totalCents: number;
   payerId: PersonId;
   createdAt: string;
   shares: Record<PersonId, number>;
-  settlementStatus?: 'open' | 'settled';
+  settlementStatus?: SettlementStatus;
   transfers?: Transfer[];
 }

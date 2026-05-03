@@ -4,6 +4,6 @@ module.exports = {
   testMatch: ['**/*.test.ts', '**/*.test.tsx'],
   testPathIgnorePatterns: ['/node_modules/', '/.maestro/'],
   transformIgnorePatterns: [
-    'node_modules/(?!(?:.pnpm/[^/]+/node_modules/)?(?:(jest-)?react-native|@react-native(-community)?|expo[\\w-]*|@expo[\\w-]*|@expo-google-fonts/.*|react-clone-referenced-element|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base|react-native-svg|nativewind|react-native-css-interop|react-native-worklets)/)',
+    'node_modules/(?!(?:.pnpm/[^/]+/node_modules/)?(?:(jest-)?react-native|@react-native(-community)?|expo[\\w-]*|@expo[\\w-]*|@expo-google-fonts/.*|react-clone-referenced-element|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base|react-native-svg|nativewind|react-native-css-interop|react-native-worklets|nanoid)/)',
   ],
 };
