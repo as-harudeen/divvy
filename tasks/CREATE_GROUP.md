@@ -6,14 +6,14 @@ Form to name a group + add members. Members shown as pills. Recents list pulls f
 
 ## Requirements
 
-- [ ] Group name input (required, trimmed)
-- [ ] Member pills row showing currently added members (with remove × on each)
-- [ ] Recents section listing all `Person` records not yet added; tap to add
-- [ ] Already-added recents shown dimmed (not removable from this list)
-- [ ] Member counter: "N members"
-- [ ] "Add person" button → opens AddPersonSheet (Task 1.3)
-- [ ] Save button disabled when name empty or 0 members
-- [ ] On save: create Group, set as activeGroupId, `router.replace('/group/[id]')`
+- [x] Group name input (required, trimmed)
+- [x] Member pills row showing currently added members (with remove × on each)
+- [x] Recents section listing all `Person` records not yet added; tap to add
+- [x] Already-added recents shown dimmed (not removable from this list)
+- [x] Member counter: "N members"
+- [x] "Add person" button → opens AddPersonSheet (Task 1.3)
+- [x] Save button disabled when name empty or 0 members
+- [x] On save: create Group, set as activeGroupId, `router.replace('/group/[id]')`
 
 ## Technical Notes
 
@@ -27,14 +27,14 @@ Form to name a group + add members. Members shown as pills. Recents list pulls f
 
 ## TDD Checklist
 
-- [ ] Save disabled until name + ≥1 member
-- [ ] Adding from recents removes it from selectable list (dims)
-- [ ] Removing pill returns person to recents
-- [ ] Counter reflects member count
-- [ ] Save creates Group + navigates
-- [ ] Implement
-- [ ] `pnpm turbo typecheck` clean
+- [x] Save disabled until name + ≥1 member
+- [x] Adding from recents removes it from selectable list (dims)
+- [x] Removing pill returns person to recents
+- [x] Counter reflects member count
+- [x] Save creates Group + navigates
+- [x] Implement
+- [x] `pnpm turbo typecheck` clean
 
 ## Completed
 
-<!-- fill after task done -->
+- Implemented on 2026-05-04 with component tests covering create-group form behavior.
