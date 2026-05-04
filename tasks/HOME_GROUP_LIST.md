@@ -6,13 +6,13 @@ Landing screen. List of groups as cards, ACTIVE badge on the active one, status 
 
 ## Requirements
 
-- [ ] `GroupCard` component: name, member avatars (stacked), status pill, ACTIVE badge if `id === activeGroupId`
-- [ ] List sorted by `lastActivityAt` desc
-- [ ] Context strip at top showing active group name (links to group detail on tap)
-- [ ] FAB bottom-right → `router.push('/group/new')`
-- [ ] Empty state: "No groups yet" + CTA button → create
-- [ ] Tap card → set activeGroupId + navigate to `/group/[id]`
-- [ ] Match mockup pixel-for-pixel
+- [x] `GroupCard` component: name, member avatars (stacked), status pill, ACTIVE badge if `id === activeGroupId`
+- [x] List sorted by `lastActivityAt` desc
+- [x] Context strip at top showing active group name (links to group detail on tap)
+- [x] FAB bottom-right → `router.push('/group/new')`
+- [x] Empty state: "No groups yet" + CTA button → create
+- [x] Tap card → set activeGroupId + navigate to `/group/[id]`
+- [x] Match mockup pixel-for-pixel
 
 ## Technical Notes
 
@@ -25,13 +25,13 @@ Landing screen. List of groups as cards, ACTIVE badge on the active one, status 
 
 ## TDD Checklist
 
-- [ ] Snapshot per GroupCard state (active/inactive × open/settled)
-- [ ] Empty state renders when groups list empty
-- [ ] FAB tap navigates to `/group/new`
-- [ ] Implement
-- [ ] `pnpm turbo typecheck` clean
-- [ ] Biome clean
+- [x] Snapshot per GroupCard state (active/inactive × open/settled)
+- [x] Empty state renders when groups list empty
+- [x] FAB tap navigates to `/group/new`
+- [x] Implement
+- [x] `pnpm turbo typecheck` clean
+- [x] Biome clean
 
 ## Completed
 
-<!-- fill after task done -->
+- Claude design references: `docs/mockups/HOME_GROUP_LIST.md`

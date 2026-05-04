@@ -1,0 +1,591 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GroupCard matches snapshot for active open state 1`] = `
+<View
+  className="relative pt-2.5"
+  testID="group-card-frame"
+>
+  <View
+    className="absolute right-3 top-0 z-10 h-5 w-[78px] items-end"
+    testID="group-card-active-badge"
+  >
+    <View
+      accessibilityRole="text"
+      className="flex-row self-start rounded-full h-full items-center justify-center bg-blue-600 px-2.5 py-0"
+    >
+      <Text
+        className="text-[10px] font-bold text-white"
+      >
+        ACTIVE
+      </Text>
+    </View>
+  </View>
+  <View
+    accessibilityLabel="Apartment, Open, 3 people, $96.40"
+    accessibilityRole="button"
+    accessibilityState={
+      {
+        "busy": undefined,
+        "checked": undefined,
+        "disabled": undefined,
+        "expanded": undefined,
+        "selected": true,
+      }
+    }
+    accessibilityValue={
+      {
+        "max": undefined,
+        "min": undefined,
+        "now": undefined,
+        "text": undefined,
+      }
+    }
+    accessible={true}
+    className="relative rounded-xl border px-3 py-3 active:bg-gray-50 border-blue-500 bg-blue-50"
+    collapsable={false}
+    focusable={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+  >
+    <View
+      className="flex-row items-center justify-between gap-3"
+    >
+      <View
+        className="flex-row flex-1 items-center gap-3"
+      >
+        <View
+          className="flex-row items-center"
+        >
+          <View
+            accessibilityLabel="Avatar for You"
+            className="h-9 w-9 items-center justify-center rounded-full border-2 border-white"
+            style={
+              {
+                "backgroundColor": "#2563EB",
+                "marginLeft": 0,
+                "zIndex": 3,
+              }
+            }
+          >
+            <Text
+              className="text-xs font-semibold text-white"
+            >
+              Y
+            </Text>
+          </View>
+          <View
+            accessibilityLabel="Avatar for Maya"
+            className="h-9 w-9 items-center justify-center rounded-full border-2 border-white"
+            style={
+              {
+                "backgroundColor": "#DC2626",
+                "marginLeft": -8,
+                "zIndex": 2,
+              }
+            }
+          >
+            <Text
+              className="text-xs font-semibold text-white"
+            >
+              M
+            </Text>
+          </View>
+          <View
+            accessibilityLabel="Avatar for Sam"
+            className="h-9 w-9 items-center justify-center rounded-full border-2 border-white"
+            style={
+              {
+                "backgroundColor": "#16A34A",
+                "marginLeft": -8,
+                "zIndex": 1,
+              }
+            }
+          >
+            <Text
+              className="text-xs font-semibold text-white"
+            >
+              S
+            </Text>
+          </View>
+        </View>
+        <View
+          className="flex-1 gap-0.5"
+        >
+          <Text
+            className="text-base font-bold text-slate-950"
+          >
+            Apartment
+          </Text>
+          <Text
+            className="text-xs text-slate-500"
+          >
+            3 people - Today - 1:42 PM
+          </Text>
+        </View>
+      </View>
+      <View
+        className="min-w-[78px] items-end gap-1"
+      >
+        <Text
+          className="font-mono-medium text-base text-slate-950"
+        >
+          $96.40
+        </Text>
+        <View
+          accessibilityRole="text"
+          className="flex-row items-center rounded-full self-end px-0 py-0 bg-amber-50"
+          testID="group-card-status-pill"
+        >
+          <Text
+            className="font-medium text-xs text-amber-700"
+          >
+            Open
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`GroupCard matches snapshot for active settled state 1`] = `
+<View
+  className="relative pt-2.5"
+  testID="group-card-frame"
+>
+  <View
+    className="absolute right-3 top-0 z-10 h-5 w-[78px] items-end"
+    testID="group-card-active-badge"
+  >
+    <View
+      accessibilityRole="text"
+      className="flex-row self-start rounded-full h-full items-center justify-center bg-blue-600 px-2.5 py-0"
+    >
+      <Text
+        className="text-[10px] font-bold text-white"
+      >
+        ACTIVE
+      </Text>
+    </View>
+  </View>
+  <View
+    accessibilityLabel="Weekend Trip, Settled, 3 people, $96.40"
+    accessibilityRole="button"
+    accessibilityState={
+      {
+        "busy": undefined,
+        "checked": undefined,
+        "disabled": undefined,
+        "expanded": undefined,
+        "selected": true,
+      }
+    }
+    accessibilityValue={
+      {
+        "max": undefined,
+        "min": undefined,
+        "now": undefined,
+        "text": undefined,
+      }
+    }
+    accessible={true}
+    className="relative rounded-xl border px-3 py-3 active:bg-gray-50 border-blue-500 bg-blue-50"
+    collapsable={false}
+    focusable={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+  >
+    <View
+      className="flex-row items-center justify-between gap-3"
+    >
+      <View
+        className="flex-row flex-1 items-center gap-3"
+      >
+        <View
+          className="flex-row items-center"
+        >
+          <View
+            accessibilityLabel="Avatar for You"
+            className="h-9 w-9 items-center justify-center rounded-full border-2 border-white"
+            style={
+              {
+                "backgroundColor": "#2563EB",
+                "marginLeft": 0,
+                "zIndex": 3,
+              }
+            }
+          >
+            <Text
+              className="text-xs font-semibold text-white"
+            >
+              Y
+            </Text>
+          </View>
+          <View
+            accessibilityLabel="Avatar for Maya"
+            className="h-9 w-9 items-center justify-center rounded-full border-2 border-white"
+            style={
+              {
+                "backgroundColor": "#DC2626",
+                "marginLeft": -8,
+                "zIndex": 2,
+              }
+            }
+          >
+            <Text
+              className="text-xs font-semibold text-white"
+            >
+              M
+            </Text>
+          </View>
+          <View
+            accessibilityLabel="Avatar for Sam"
+            className="h-9 w-9 items-center justify-center rounded-full border-2 border-white"
+            style={
+              {
+                "backgroundColor": "#16A34A",
+                "marginLeft": -8,
+                "zIndex": 1,
+              }
+            }
+          >
+            <Text
+              className="text-xs font-semibold text-white"
+            >
+              S
+            </Text>
+          </View>
+        </View>
+        <View
+          className="flex-1 gap-0.5"
+        >
+          <Text
+            className="text-base font-bold text-slate-950"
+          >
+            Weekend Trip
+          </Text>
+          <Text
+            className="text-xs text-slate-500"
+          >
+            3 people - Today - 1:42 PM
+          </Text>
+        </View>
+      </View>
+      <View
+        className="min-w-[78px] items-end gap-1"
+      >
+        <Text
+          className="font-mono-medium text-base text-slate-950"
+        >
+          $96.40
+        </Text>
+        <View
+          accessibilityRole="text"
+          className="flex-row items-center rounded-full self-end px-0 py-0 bg-white"
+          testID="group-card-status-pill"
+        >
+          <Text
+            className="font-medium text-xs text-green-700"
+          >
+            Settled
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`GroupCard matches snapshot for inactive open state 1`] = `
+<View
+  className="relative"
+  testID="group-card-frame"
+>
+  <View
+    accessibilityLabel="Apartment, Open, 3 people, $96.40"
+    accessibilityRole="button"
+    accessibilityState={
+      {
+        "busy": undefined,
+        "checked": undefined,
+        "disabled": undefined,
+        "expanded": undefined,
+        "selected": false,
+      }
+    }
+    accessibilityValue={
+      {
+        "max": undefined,
+        "min": undefined,
+        "now": undefined,
+        "text": undefined,
+      }
+    }
+    accessible={true}
+    className="relative rounded-xl border bg-white px-3 py-3 active:bg-gray-50 border-gray-200"
+    collapsable={false}
+    focusable={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+  >
+    <View
+      className="flex-row items-center justify-between gap-3"
+    >
+      <View
+        className="flex-row flex-1 items-center gap-3"
+      >
+        <View
+          className="flex-row items-center"
+        >
+          <View
+            accessibilityLabel="Avatar for You"
+            className="h-9 w-9 items-center justify-center rounded-full border-2 border-white"
+            style={
+              {
+                "backgroundColor": "#2563EB",
+                "marginLeft": 0,
+                "zIndex": 3,
+              }
+            }
+          >
+            <Text
+              className="text-xs font-semibold text-white"
+            >
+              Y
+            </Text>
+          </View>
+          <View
+            accessibilityLabel="Avatar for Maya"
+            className="h-9 w-9 items-center justify-center rounded-full border-2 border-white"
+            style={
+              {
+                "backgroundColor": "#DC2626",
+                "marginLeft": -8,
+                "zIndex": 2,
+              }
+            }
+          >
+            <Text
+              className="text-xs font-semibold text-white"
+            >
+              M
+            </Text>
+          </View>
+          <View
+            accessibilityLabel="Avatar for Sam"
+            className="h-9 w-9 items-center justify-center rounded-full border-2 border-white"
+            style={
+              {
+                "backgroundColor": "#16A34A",
+                "marginLeft": -8,
+                "zIndex": 1,
+              }
+            }
+          >
+            <Text
+              className="text-xs font-semibold text-white"
+            >
+              S
+            </Text>
+          </View>
+        </View>
+        <View
+          className="flex-1 gap-0.5"
+        >
+          <Text
+            className="text-base font-bold text-slate-950"
+          >
+            Apartment
+          </Text>
+          <Text
+            className="text-xs text-slate-500"
+          >
+            3 people - Today - 1:42 PM
+          </Text>
+        </View>
+      </View>
+      <View
+        className="min-w-[78px] items-end gap-1"
+      >
+        <Text
+          className="font-mono-medium text-base text-slate-950"
+        >
+          $96.40
+        </Text>
+        <View
+          accessibilityRole="text"
+          className="flex-row items-center rounded-full self-end px-0 py-0 bg-amber-50"
+          testID="group-card-status-pill"
+        >
+          <Text
+            className="font-medium text-xs text-amber-700"
+          >
+            Open
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`GroupCard matches snapshot for inactive settled state 1`] = `
+<View
+  className="relative"
+  testID="group-card-frame"
+>
+  <View
+    accessibilityLabel="Weekend Trip, Settled, 3 people, $96.40"
+    accessibilityRole="button"
+    accessibilityState={
+      {
+        "busy": undefined,
+        "checked": undefined,
+        "disabled": undefined,
+        "expanded": undefined,
+        "selected": false,
+      }
+    }
+    accessibilityValue={
+      {
+        "max": undefined,
+        "min": undefined,
+        "now": undefined,
+        "text": undefined,
+      }
+    }
+    accessible={true}
+    className="relative rounded-xl border bg-white px-3 py-3 active:bg-gray-50 border-gray-200"
+    collapsable={false}
+    focusable={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+  >
+    <View
+      className="flex-row items-center justify-between gap-3"
+    >
+      <View
+        className="flex-row flex-1 items-center gap-3"
+      >
+        <View
+          className="flex-row items-center"
+        >
+          <View
+            accessibilityLabel="Avatar for You"
+            className="h-9 w-9 items-center justify-center rounded-full border-2 border-white"
+            style={
+              {
+                "backgroundColor": "#2563EB",
+                "marginLeft": 0,
+                "zIndex": 3,
+              }
+            }
+          >
+            <Text
+              className="text-xs font-semibold text-white"
+            >
+              Y
+            </Text>
+          </View>
+          <View
+            accessibilityLabel="Avatar for Maya"
+            className="h-9 w-9 items-center justify-center rounded-full border-2 border-white"
+            style={
+              {
+                "backgroundColor": "#DC2626",
+                "marginLeft": -8,
+                "zIndex": 2,
+              }
+            }
+          >
+            <Text
+              className="text-xs font-semibold text-white"
+            >
+              M
+            </Text>
+          </View>
+          <View
+            accessibilityLabel="Avatar for Sam"
+            className="h-9 w-9 items-center justify-center rounded-full border-2 border-white"
+            style={
+              {
+                "backgroundColor": "#16A34A",
+                "marginLeft": -8,
+                "zIndex": 1,
+              }
+            }
+          >
+            <Text
+              className="text-xs font-semibold text-white"
+            >
+              S
+            </Text>
+          </View>
+        </View>
+        <View
+          className="flex-1 gap-0.5"
+        >
+          <Text
+            className="text-base font-bold text-slate-950"
+          >
+            Weekend Trip
+          </Text>
+          <Text
+            className="text-xs text-slate-500"
+          >
+            3 people - Today - 1:42 PM
+          </Text>
+        </View>
+      </View>
+      <View
+        className="min-w-[78px] items-end gap-1"
+      >
+        <Text
+          className="font-mono-medium text-base text-slate-950"
+        >
+          $96.40
+        </Text>
+        <View
+          accessibilityRole="text"
+          className="flex-row items-center rounded-full self-end px-0 py-0 bg-white"
+          testID="group-card-status-pill"
+        >
+          <Text
+            className="font-medium text-xs text-green-700"
+          >
+            Settled
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;

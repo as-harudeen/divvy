@@ -1,6 +1,10 @@
 import '@testing-library/react-native/extend-expect';
 import { render, screen } from '@testing-library/react-native';
 
+jest.mock('@react-native-async-storage/async-storage', () =>
+  require('@react-native-async-storage/async-storage/jest/async-storage-mock'),
+);
+
 jest.mock('expo-router', () => {
   const { Text } = require('react-native');
   const router = { back: jest.fn(), push: jest.fn() };
