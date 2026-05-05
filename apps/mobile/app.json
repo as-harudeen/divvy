@@ -12,7 +12,8 @@
       "bundleIdentifier": "com.example.mobile"
     },
     "android": {
-      "package": "com.example.mobile"
+      "package": "com.example.mobile",
+      "softwareKeyboardLayoutMode": "pan"
     },
     "web": {
       "bundler": "metro"

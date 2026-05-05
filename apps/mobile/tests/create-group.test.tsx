@@ -2,6 +2,7 @@ import '@testing-library/react-native/extend-expect';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import type { Person } from '@repo/types';
 import { fireEvent, render, screen } from '@testing-library/react-native';
+import type React from 'react';
 
 import { useAppStore } from '../src/stores/app';
 import { useGroupsStore } from '../src/stores/groups';
@@ -10,6 +11,91 @@ import { usePeopleStore } from '../src/stores/people';
 jest.mock('@react-native-async-storage/async-storage', () =>
   require('@react-native-async-storage/async-storage/jest/async-storage-mock'),
 );
+
+const mockNanoid = jest.fn<string, []>();
+
+jest.mock('nanoid/non-secure', () => ({
+  nanoid: () => mockNanoid(),
+}));
+
+type MockBottomSheetModalHandle = {
+  present: () => void;
+  dismiss: () => void;
+};
+
+type MockBottomSheetModalProps = {
+  children?: React.ReactNode;
+  backdropComponent?: (props: Record<string, unknown>) => React.ReactNode;
+  onDismiss?: () => void;
+};
+
+type MockBottomSheetViewProps = {
+  children?: React.ReactNode;
+  testID?: string;
+};
+
+jest.mock('@gorhom/bottom-sheet', () => {
+  const React = require('react');
+  const { Pressable, TextInput, View } = require('react-native');
+
+  const BottomSheetModal = React.forwardRef(
+    (
+      { children, backdropComponent: BackdropComponent, onDismiss }: MockBottomSheetModalProps,
+      ref: React.Ref<MockBottomSheetModalHandle>,
+    ) => {
+      const [presented, setPresented] = React.useState(false);
+
+      React.useImperativeHandle(ref, () => ({
+        present: () => setPresented(true),
+        dismiss: () => {
+          setPresented(false);
+          onDismiss?.();
+        },
+      }));
+
+      if (!presented) {
+        return null;
+      }
+
+      return (
+        <View testID="mock-bottom-sheet-modal">
+          {BackdropComponent?.({})}
+          <View testID="mock-bottom-sheet-content">{children}</View>
+        </View>
+      );
+    },
+  );
+
+  const BottomSheetBackdrop = ({ onPress }: { onPress?: () => void }) => (
+    <Pressable
+      accessibilityRole="button"
+      accessibilityLabel="Dismiss add person sheet"
+      testID="add-person-backdrop"
+      onPress={onPress}
+    />
+  );
+
+  const BottomSheetView = ({ children, testID }: MockBottomSheetViewProps) => (
+    <View testID={testID ?? 'mock-bottom-sheet-view'}>{children}</View>
+  );
+
+  const BottomSheetModalProvider = ({ children }: { children?: React.ReactNode }) => (
+    <View testID="mock-bottom-sheet-provider">{children}</View>
+  );
+
+  const BottomSheetTextInput = (props: React.ComponentProps<typeof TextInput>) => (
+    <TextInput {...props} />
+  );
+
+  return {
+    __esModule: true,
+    BottomSheetBackdrop,
+    BottomSheetModal,
+    BottomSheetModalProvider,
+    BottomSheetTextInput,
+    BottomSheetView,
+  };
+});
 
 jest.mock('expo-router', () => {
   const router = { back: jest.fn(), replace: jest.fn() };
@@ -59,6 +145,8 @@ describe('CreateGroupScreen', () => {
     await AsyncStorage.clear();
     router.back.mockClear();
     router.replace.mockClear();
+    mockNanoid.mockReset();
+    mockNanoid.mockReturnValue('generated-id');
     useAppStore.setState(emptyAppState);
     useGroupsStore.setState(emptyGroupsState);
     usePeopleStore.setState({ people: {}, version: 1 });
@@ -138,6 +226,18 @@ describe('CreateGroupScreen', () => {
 
     expect(screen.getByTestId('add-person-sheet')).toBeOnTheScreen();
     expect(screen.getByText('Add person')).toBeOnTheScreen();
+  });
+
+  it('auto-adds a newly created person to the current group form', () => {
+    mockNanoid.mockReturnValue('person-riley');
+    renderCreateGroup();
+
+    fireEvent.press(screen.getByTestId('add-person-button'));
+    fireEvent.changeText(screen.getByLabelText('First name'), 'Riley');
+    fireEvent.press(screen.getByLabelText('Add to group'));
+
+    expect(screen.getByTestId('member-pill-person-riley')).toBeOnTheScreen();
+    expect(screen.getByTestId('member-count')).toHaveTextContent('2 members');
   });
 
   it('creates the group, sets it active, and replaces with the group detail route', () => {

@@ -6,12 +6,12 @@ Bottom sheet for creating a new Person. First-name input only. Auto-assign avata
 
 ## Requirements
 
-- [ ] `@gorhom/bottom-sheet` based modal
-- [ ] First-name input (required, trimmed, ≤ 32 chars)
-- [ ] Avatar preview shows assigned color live
-- [ ] "Add" button disabled when name empty
-- [ ] On add: write Person to people store, return new person to caller, close sheet
-- [ ] Caller (Create Group screen) auto-adds returned person to current group form
+- [x] `@gorhom/bottom-sheet` based modal
+- [x] First-name input (required, trimmed, ≤ 32 chars)
+- [x] Avatar preview shows assigned color live
+- [x] "Add" button disabled when name empty
+- [x] On add: write Person to people store, return new person to caller, close sheet
+- [x] Caller (Create Group screen) auto-adds returned person to current group form
 
 ## Technical Notes
 
@@ -24,13 +24,13 @@ Bottom sheet for creating a new Person. First-name input only. Auto-assign avata
 
 ## TDD Checklist
 
-- [ ] Add button disabled when name empty / whitespace
-- [ ] Color deterministic: same id → same palette index
-- [ ] Successful add appends to `usePeopleStore`
-- [ ] Sheet closes on add and on backdrop tap
-- [ ] Implement
-- [ ] `pnpm turbo typecheck` clean
+- [x] Add button disabled when name empty / whitespace
+- [x] Color deterministic: same id → same palette index
+- [x] Successful add appends to `usePeopleStore`
+- [x] Sheet closes on add and on backdrop tap
+- [x] Implement
+- [x] `pnpm turbo typecheck` clean
 
 ## Completed
 
-<!-- fill after task done -->
+- Implemented Add Person as a `@gorhom/bottom-sheet` modal with first-name validation, deterministic id-based avatar color, optional swatch override, store write, dismissal, and Create Group auto-add integration.

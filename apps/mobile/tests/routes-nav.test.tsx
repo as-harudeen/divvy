@@ -1,9 +1,27 @@
 import '@testing-library/react-native/extend-expect';
 import { render, screen } from '@testing-library/react-native';
+import type React from 'react';
 
 jest.mock('@react-native-async-storage/async-storage', () =>
   require('@react-native-async-storage/async-storage/jest/async-storage-mock'),
 );
+
+jest.mock('@gorhom/bottom-sheet', () => {
+  const { TextInput, View } = require('react-native');
+
+  return {
+    __esModule: true,
+    BottomSheetBackdrop: () => <View />,
+    BottomSheetModal: () => null,
+    BottomSheetModalProvider: ({ children }: { children?: React.ReactNode }) => (
+      <View>{children}</View>
+    ),
+    BottomSheetTextInput: (props: React.ComponentProps<typeof TextInput>) => (
+      <TextInput {...props} />
+    ),
+    BottomSheetView: ({ children }: { children?: React.ReactNode }) => <View>{children}</View>,
+  };
+});
 
 jest.mock('expo-router', () => {
   const { Text } = require('react-native');

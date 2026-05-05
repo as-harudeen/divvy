@@ -10,6 +10,15 @@ jest.mock('react-native-gesture-handler', () => {
   };
 });
 
+jest.mock('@gorhom/bottom-sheet', () => {
+  const { View } = require('react-native');
+  return {
+    BottomSheetModalProvider: ({ children }: { children?: React.ReactNode }) => (
+      <View testID="bottom-sheet-modal-provider">{children}</View>
+    ),
+  };
+});
+
 jest.mock('expo-font', () => ({
   useFonts: () => [true, null],
 }));
@@ -39,6 +48,12 @@ import RootLayout from '../app/_layout';
 describe('RootLayout', () => {
   it('renders without crash', () => {
     expect(() => render(<RootLayout />)).not.toThrow();
+  });
+
+  it('provides bottom sheet modals at the app root', () => {
+    const { getByTestId } = render(<RootLayout />);
+
+    expect(getByTestId('bottom-sheet-modal-provider')).toBeOnTheScreen();
   });
 
   it('loads Inter and JetBrains Mono font maps', () => {
