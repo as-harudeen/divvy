@@ -2,6 +2,7 @@ import '@testing-library/react-native/extend-expect';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import type { Group, Person, Split } from '@repo/types';
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react-native';
+import type React from 'react';
 
 import { useAppStore } from '../src/stores/app';
 import { useGroupsStore } from '../src/stores/groups';
@@ -11,6 +12,106 @@ import { useSplitsStore } from '../src/stores/splits';
 jest.mock('@react-native-async-storage/async-storage', () =>
   require('@react-native-async-storage/async-storage/jest/async-storage-mock'),
 );
+
+type MockBottomSheetModalHandle = {
+  present: () => void;
+  dismiss: () => void;
+};
+
+type MockBottomSheetModalProps = {
+  children?: React.ReactNode;
+  backdropComponent?: (props: Record<string, unknown>) => React.ReactNode;
+  onDismiss?: () => void;
+};
+
+type MockBottomSheetViewProps = {
+  children?: React.ReactNode;
+  testID?: string;
+};
+
+type MockBottomSheetFlatListProps = {
+  data?: readonly unknown[];
+  renderItem: ({ item }: { item: unknown }) => React.ReactElement | null;
+  keyExtractor?: (item: unknown, index: number) => string;
+  testID?: string;
+};
+
+jest.mock('@gorhom/bottom-sheet', () => {
+  const React = require('react');
+  const { Pressable, TextInput, View } = require('react-native');
+
+  const BottomSheetModal = React.forwardRef(
+    (
+      { children, backdropComponent: BackdropComponent, onDismiss }: MockBottomSheetModalProps,
+      ref: React.Ref<MockBottomSheetModalHandle>,
+    ) => {
+      const [presented, setPresented] = React.useState(false);
+
+      React.useImperativeHandle(ref, () => ({
+        present: () => setPresented(true),
+        dismiss: () => {
+          setPresented(false);
+          onDismiss?.();
+        },
+      }));
+
+      if (!presented) {
+        return null;
+      }
+
+      return (
+        <View testID="mock-bottom-sheet-modal">
+          {BackdropComponent?.({})}
+          <View testID="mock-bottom-sheet-content">{children}</View>
+        </View>
+      );
+    },
+  );
+
+  const BottomSheetBackdrop = ({ onPress }: { onPress?: () => void }) => (
+    <Pressable
+      accessibilityRole="button"
+      accessibilityLabel="Dismiss add people sheet"
+      testID="add-people-backdrop"
+      onPress={onPress}
+    />
+  );
+
+  const BottomSheetView = ({ children, testID }: MockBottomSheetViewProps) => (
+    <View testID={testID ?? 'mock-bottom-sheet-view'}>{children}</View>
+  );
+
+  const BottomSheetFlatList = ({
+    data,
+    renderItem,
+    keyExtractor,
+    testID,
+  }: MockBottomSheetFlatListProps) => (
+    <View testID={testID ?? 'mock-bottom-sheet-flat-list'}>
+      {(data ?? []).map((item, index) => (
+        <View key={keyExtractor?.(item, index) ?? index}>{renderItem({ item })}</View>
+      ))}
+    </View>
+  );
+
+  const BottomSheetModalProvider = ({ children }: { children?: React.ReactNode }) => (
+    <View testID="mock-bottom-sheet-provider">{children}</View>
+  );
+
+  const BottomSheetTextInput = (props: React.ComponentProps<typeof TextInput>) => (
+    <TextInput {...props} />
+  );
+
+  return {
+    __esModule: true,
+    BottomSheetBackdrop,
+    BottomSheetFlatList,
+    BottomSheetModal,
+    BottomSheetModalProvider,
+    BottomSheetTextInput,
+    BottomSheetView,
+  };
+});
 
 const mockRouter = { back: jest.fn(), push: jest.fn() };
 let mockRouteParams = { id: 'group-brunch' };

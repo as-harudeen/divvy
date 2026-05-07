@@ -5,6 +5,7 @@ import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useEffect, useMemo, useState } from 'react';
 import { Pressable, ScrollView, Text, View } from 'react-native';
 
+import { AddPeopleSheet } from '../../../src/components/groups/AddPeopleSheet';
 import { GroupHeader } from '../../../src/components/groups/GroupHeader';
 import { BalanceCard } from '../../../src/components/splits/BalanceCard';
 import { SplitRow } from '../../../src/components/splits/SplitRow';
@@ -69,14 +70,18 @@ function MemberAvatarButton({ person, selected, onPress }: MemberAvatarButtonPro
   );
 }
 
-function AddMemberButton() {
+interface AddMemberButtonProps {
+  onPress: () => void;
+}
+
+function AddMemberButton({ onPress }: AddMemberButtonProps) {
   return (
     <Pressable
       accessibilityRole="button"
       accessibilityLabel="Add member"
       testID="member-add-button"
       className="w-12 items-center gap-1 active:opacity-75"
-      onPress={() => undefined}
+      onPress={onPress}
     >
       <View className="h-10 w-10 items-center justify-center rounded-full border border-dashed border-slate-300 bg-white">
         <Text className="text-base font-semibold text-slate-400">+</Text>
@@ -132,6 +137,7 @@ export default function GroupDetailScreen() {
   const splitsById = useSplitsStore((state) => state.splits);
   const userPersonId = useAppStore((state) => state.userPersonId);
   const [selectedMemberId, setSelectedMemberId] = useState<PersonId | null>(null);
+  const [isAddPeopleOpen, setIsAddPeopleOpen] = useState(false);
   const groupId = group?.id ?? null;
 
   const members = useMemo(
@@ -180,7 +186,13 @@ export default function GroupDetailScreen() {
     router.push('/');
   };
 
-  const handleEdit = () => undefined;
+  const handleEdit = () => {
+    setIsAddPeopleOpen(true);
+  };
+
+  const handleAddMember = () => {
+    setIsAddPeopleOpen(true);
+  };
 
   const handleMemberPress = (person: Person) => {
     setSelectedMemberId((currentId) => (currentId === person.id ? null : person.id));
@@ -232,7 +244,7 @@ export default function GroupDetailScreen() {
                 onPress={handleMemberPress}
               />
             ))}
-            <AddMemberButton />
+            <AddMemberButton onPress={handleAddMember} />
           </ScrollView>
 
           <BalanceCard
@@ -269,6 +281,11 @@ export default function GroupDetailScreen() {
       </ScrollView>
 
       <NewSplitButton onPress={handleNewSplit} />
+      <AddPeopleSheet
+        visible={isAddPeopleOpen}
+        groupId={group.id}
+        onClose={() => setIsAddPeopleOpen(false)}
+      />
     </View>
   );
 }
